@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="inventario_activos" Class="DbActivosDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SS-ADSIMBANA1\SAFETICA;Initial Catalog=inventario_activos;Integrated Security=True" SettingsObjectName="Modelo.Properties.Settings" SettingsPropertyName="inventario_activosConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tbl_activo" Member="tbl_activo">
+    <Type Name="tbl_activo">
+      <Column Name="id_activo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cod1_activo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cod2_activo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="tipo_activo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="id_marca" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_modelo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="serial_activo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ubicacion_activo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="id_estadoAc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="observacion_activo" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="estado_uso" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="tbl_activo_tbl_custodio" Member="tbl_custodio" ThisKey="id_activo" OtherKey="id_activo" Type="tbl_custodio" />
+      <Association Name="tbl_estadoAc_tbl_activo" Member="tbl_estadoAc" ThisKey="id_estadoAc" OtherKey="id_estadoAc" Type="tbl_estadoAc" IsForeignKey="true" />
+      <Association Name="tbl_modelo_tbl_activo" Member="tbl_modelo" ThisKey="id_modelo" OtherKey="id_modelo" Type="tbl_modelo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_rol" Member="tbl_rol">
+    <Type Name="tbl_rol">
+      <Column Name="id_rol" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="descripcion_rol" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="estado_rol" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="tbl_rol_tbl_empleado" Member="tbl_empleado" ThisKey="id_rol" OtherKey="id_rol" Type="tbl_empleado" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_custodio" Member="tbl_custodio">
+    <Type Name="tbl_custodio">
+      <Column Name="id_custodio" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_activo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_empleado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fecha_entrega" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="fecha_recepcion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="estado_custodio" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="observacion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="tbl_activo_tbl_custodio" Member="tbl_activo" ThisKey="id_activo" OtherKey="id_activo" Type="tbl_activo" IsForeignKey="true" />
+      <Association Name="tbl_empleado_tbl_custodio" Member="tbl_empleado" ThisKey="id_empleado" OtherKey="id_empleado" Type="tbl_empleado" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_departamento" Member="tbl_departamento">
+    <Type Name="tbl_departamento">
+      <Column Name="id_departamento" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="desc_departamento" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="tbl_departamento_tbl_empleado" Member="tbl_empleado" ThisKey="id_departamento" OtherKey="id_departamento" Type="tbl_empleado" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_empleado" Member="tbl_empleado">
+    <Type Name="tbl_empleado">
+      <Column Name="id_empleado" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre_empleado" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="apellido_empleado" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="correo_empleado" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="id_departamento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_rol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dni_empleado" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="contrasena_empleado" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="estado_empleado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="tbl_empleado_tbl_custodio" Member="tbl_custodio" ThisKey="id_empleado" OtherKey="id_empleado" Type="tbl_custodio" />
+      <Association Name="tbl_departamento_tbl_empleado" Member="tbl_departamento" ThisKey="id_departamento" OtherKey="id_departamento" Type="tbl_departamento" IsForeignKey="true" />
+      <Association Name="tbl_rol_tbl_empleado" Member="tbl_rol" ThisKey="id_rol" OtherKey="id_rol" Type="tbl_rol" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_estadoAc" Member="tbl_estadoAc">
+    <Type Name="tbl_estadoAc">
+      <Column Name="id_estadoAc" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="desc_estadoAc" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Association Name="tbl_estadoAc_tbl_activo" Member="tbl_activo" ThisKey="id_estadoAc" OtherKey="id_estadoAc" Type="tbl_activo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_marca" Member="tbl_marca">
+    <Type Name="tbl_marca">
+      <Column Name="id_marca" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="desc_marca" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Association Name="tbl_marca_tbl_marcaModelo" Member="tbl_marcaModelo" ThisKey="id_marca" OtherKey="id_marca" Type="tbl_marcaModelo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_marcaModelo" Member="tbl_marcaModelo">
+    <Type Name="tbl_marcaModelo">
+      <Column Name="id_marcaModelo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_marca" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_modelo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tbl_marca_tbl_marcaModelo" Member="tbl_marca" ThisKey="id_marca" OtherKey="id_marca" Type="tbl_marca" IsForeignKey="true" />
+      <Association Name="tbl_modelo_tbl_marcaModelo" Member="tbl_modelo" ThisKey="id_modelo" OtherKey="id_modelo" Type="tbl_modelo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_modelo" Member="tbl_modelo">
+    <Type Name="tbl_modelo">
+      <Column Name="id_modelo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="desc_modelo" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Association Name="tbl_modelo_tbl_activo" Member="tbl_activo" ThisKey="id_modelo" OtherKey="id_modelo" Type="tbl_activo" />
+      <Association Name="tbl_modelo_tbl_marcaModelo" Member="tbl_marcaModelo" ThisKey="id_modelo" OtherKey="id_modelo" Type="tbl_marcaModelo" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Activos_disponibles" Method="Activos_disponibles">
+    <ElementType Name="Activos_disponiblesResult">
+      <Column Name="[N°]" Member="N_" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Código_1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Código_2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Descripción" Type="System.String" DbType="VarChar(178)" CanBeNull="true" />
+      <Column Name="Serial" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.listar_rol" Method="listar_rol">
+    <ElementType Name="listar_rolResult">
+      <Column Name="id_rol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion_rol" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="estado_rol" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.actualizar_departamento" Method="actualizar_departamento">
+    <Parameter Name="id_departamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="desc_departamento" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.actualizar_estadoAc" Method="actualizar_estadoAc">
+    <Parameter Name="id_estadoAc" Type="System.Int32" DbType="Int" />
+    <Parameter Name="desc_estadoAc" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.actualizar_marca" Method="actualizar_marca">
+    <Parameter Name="id_marca" Type="System.Int32" DbType="Int" />
+    <Parameter Name="des_marca" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.actualizar_modelo" Method="actualizar_modelo">
+    <Parameter Name="id_modelo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="desc_modelo" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.actualizar_rol" Method="actualizar_rol">
+    <Parameter Name="id_rol" Type="System.Int32" DbType="Int" />
+    <Parameter Name="descripcion_rol" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="estado_rol" Type="System.Char" DbType="Char(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.buscaMasiva_activo" Method="buscaMasiva_activo">
+    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="buscaMasiva_activoResult">
+      <Column Name="Código_1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Código_2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Marca" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Modelo" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Serial" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ubicacion_activo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Estado_Activo" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Observaciones" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Estado_Uso" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.buscaMasiva_empleado" Method="buscaMasiva_empleado">
+    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="buscaMasiva_empleadoResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombres" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="Apellidos" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="Mail" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Departamento" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Rol" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cédula" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.buscar_AcDisponible" Method="buscar_AcDisponible">
+    <Parameter Name="descipcion" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="buscar_AcDisponibleResult">
+      <Column Name="[N°]" Member="N_" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Activo" Type="System.String" DbType="VarChar(42)" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Descripción" Type="System.String" DbType="VarChar(178)" CanBeNull="true" />
+      <Column Name="Serial" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.buscar_activo" Method="buscar_activo">
+    <ElementType Name="buscar_activoResult">
+      <Column Name="Código_1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Código_2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Marca" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Modelo" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Serial" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ubicacion_activo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Estado_Activo" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Observaciones" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.buscar_custodio" Method="buscar_custodio">
+    <Parameter Name="id_activo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="id_empleado" Type="System.Int32" DbType="Int" />
+    <ElementType Name="buscar_custodioResult">
+      <Column Name="Activo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(141)" CanBeNull="true" />
+      <Column Name="fecha_entrega" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="fecha_recepcion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="estado_custodio" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="observacion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.buscar_departamento" Method="buscar_departamento">
+    <Parameter Name="desc_departamento" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="buscar_departamentoResult">
+      <Column Name="id_departamento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="desc_departamento" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.buscar_estadoAc" Method="buscar_estadoAc">
+    <Parameter Name="desc_estadoAc" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="buscar_estadoAcResult">
+      <Column Name="id_estadoAc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="desc_estadoAc" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.buscar_marca" Method="buscar_marca">
+    <Parameter Name="desc_marca" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="buscar_marcaResult">
+      <Column Name="id_marca" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="desc_marca" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.buscar_modelo" Method="buscar_modelo">
+    <Parameter Name="desc_modelo" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="buscar_modeloResult">
+      <Column Name="id_modelo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="desc_modelo" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.buscar_rol" Method="buscar_rol">
+    <Parameter Name="descripcion_rol" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="buscar_rolResult">
+      <Column Name="id_rol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion_rol" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="estado_rol" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.editar_empleado" Method="editar_empleado">
+    <Parameter Name="id_empleado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nombre_empleado" Type="System.String" DbType="VarChar(75)" />
+    <Parameter Name="apellido_empleado" Type="System.String" DbType="VarChar(75)" />
+    <Parameter Name="correo_empleado" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="dni_empleado" Type="System.String" DbType="VarChar(15)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insertar_activo" Method="insertar_activo">
+    <Parameter Name="cod1_activo" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="cod2_activo" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="tipo_activo" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="id_marca" Type="System.Int32" DbType="Int" />
+    <Parameter Name="id_modelo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="serial_activo" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ubicacion_activo" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="id_estadoAC" Type="System.Int32" DbType="Int" />
+    <Parameter Name="observacion_activo" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="estado_uso" Type="System.Char" DbType="Char(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insertar_custodio" Method="insertar_custodio">
+    <Parameter Name="id_activo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="id_empleado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fecha_entrega" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecha_recepcion" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="estado_custodio" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="observacion" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insertar_departamento" Method="insertar_departamento">
+    <Parameter Name="desc_departamento" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insertar_estadoAc" Method="insertar_estadoAc">
+    <Parameter Name="desc_estadoAc" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insertar_marca" Method="insertar_marca">
+    <Parameter Name="desc_marca" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insertar_modelo" Method="insertar_modelo">
+    <Parameter Name="desc_modelo" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insertar_persona" Method="insertar_persona">
+    <Parameter Name="nombre_empleado" Type="System.String" DbType="VarChar(70)" />
+    <Parameter Name="apellido_empleado" Type="System.String" DbType="VarChar(70)" />
+    <Parameter Name="correo_empleado" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="id_departamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="id_roll" Type="System.Int32" DbType="Int" />
+    <Parameter Name="dni_empleado" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="contrasena_empleado" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="estado_empleado@" Parameter="estado_empleado_" Type="System.Char" DbType="Char(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insertar_rol" Method="insertar_rol">
+    <Parameter Name="descripcion_rol" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="estado_rol" Type="System.Char" DbType="Char(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.listar_activo" Method="listar_activo">
+    <ElementType Name="listar_activoResult">
+      <Column Name="Código_1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Código_2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Marca" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Modelo" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Serial" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ubicacion_activo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Estado_Activo" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Observaciones" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Estado_Uso" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.listar_custodio" Method="listar_custodio">
+    <ElementType Name="listar_custodioResult">
+      <Column Name="Activo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(141)" CanBeNull="true" />
+      <Column Name="fecha_entrega" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="fecha_recepcion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="estado_custodio" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="observacion" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.listar_departamento" Method="listar_departamento">
+    <ElementType Name="listar_departamentoResult">
+      <Column Name="id_departamento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="desc_departamento" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.listar_empleado" Method="listar_empleado">
+    <ElementType Name="listar_empleadoResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombres" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="Apellidos" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="Mail" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Departamento" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Rol" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cédula" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.listar_estadoAc" Method="listar_estadoAc">
+    <ElementType Name="listar_estadoAcResult">
+      <Column Name="id_estadoAc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="desc_estadoAc" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.listar_marca" Method="listar_marca">
+    <ElementType Name="listar_marcaResult">
+      <Column Name="id_marca" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="desc_marca" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.listar_modelo" Method="listar_modelo">
+    <ElementType Name="listar_modeloResult">
+      <Column Name="id_modelo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="desc_modelo" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

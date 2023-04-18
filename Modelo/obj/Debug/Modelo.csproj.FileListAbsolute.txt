@@ -4,3 +4,4 @@ C:\Users\asimbana\source\repos\Control_Inventario\Modelo\obj\Debug\Modelo.csproj
 C:\Users\asimbana\source\repos\Control_Inventario\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
 C:\Users\asimbana\source\repos\Control_Inventario\Modelo\obj\Debug\Modelo.dll
 C:\Users\asimbana\source\repos\Control_Inventario\Modelo\obj\Debug\Modelo.pdb
+C:\Users\asimbana\source\repos\Control_Inventario\Modelo\bin\Debug\Modelo.dll.config

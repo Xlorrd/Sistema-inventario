@@ -1,0 +1,10 @@
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\obj\Debug\Controlador.csprojAssemblyReference.cache
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\bin\Debug\Controlador.dll
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\bin\Debug\Controlador.pdb
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\bin\Debug\Modelo.dll
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\bin\Debug\Modelo.pdb
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\bin\Debug\Modelo.dll.config
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\obj\Debug\Controlador.csproj.CopyComplete
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\obj\Debug\Controlador.dll
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\obj\Debug\Controlador.pdb

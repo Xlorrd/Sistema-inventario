@@ -71,3 +71,8 @@ C:\Users\asimbana\source\repos\Control_Inventario\Vista\obj\Debug\Vista.csproj.C
 C:\Users\asimbana\source\repos\Control_Inventario\Vista\obj\Debug\Vista.csproj.CopyComplete
 C:\Users\asimbana\source\repos\Control_Inventario\Vista\obj\Debug\Vista.dll
 C:\Users\asimbana\source\repos\Control_Inventario\Vista\obj\Debug\Vista.pdb
+C:\Users\asimbana\source\repos\Control_Inventario\Vista\bin\Controlador.dll
+C:\Users\asimbana\source\repos\Control_Inventario\Vista\bin\Modelo.dll
+C:\Users\asimbana\source\repos\Control_Inventario\Vista\bin\Controlador.pdb
+C:\Users\asimbana\source\repos\Control_Inventario\Vista\bin\Modelo.pdb
+C:\Users\asimbana\source\repos\Control_Inventario\Vista\bin\Modelo.dll.config

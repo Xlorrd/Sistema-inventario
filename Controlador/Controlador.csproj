@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,6 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Crud_tbl_activo.cs" />
+    <Compile Include="Crud_tbl_custodio.cs" />
+    <Compile Include="Crud_tbl_departamento.cs" />
+    <Compile Include="Crud_tbl_empleado.cs" />
+    <Compile Include="crud_tbl_estadoAc.cs" />
+    <Compile Include="Crud_tbl_marca.cs" />
+    <Compile Include="crud_tbl_modelo.cs" />
+    <Compile Include="Crud_tbl_rol.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
