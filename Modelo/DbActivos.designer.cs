@@ -391,6 +391,13 @@ namespace Modelo
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<listar_modeloResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.listar_all_activo")]
+		public ISingleResult<listar_all_activoResult> listar_all_activo()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<listar_all_activoResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_activo")]
@@ -4056,6 +4063,212 @@ namespace Modelo
 				if ((this._desc_modelo != value))
 				{
 					this._desc_modelo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class listar_all_activoResult
+	{
+		
+		private System.Nullable<long> ___;
+		
+		private string _Código_1;
+		
+		private string _Código_2;
+		
+		private string _Tipo;
+		
+		private string _Marca;
+		
+		private string _Modelo;
+		
+		private string _Serial;
+		
+		private string _ubicacion_activo;
+		
+		private string _Estado_Activo;
+		
+		private string _Observaciones;
+		
+		private System.Nullable<char> _Estado_Uso;
+		
+		public listar_all_activoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[#]", Storage="___", DbType="BigInt")]
+		public System.Nullable<long> __
+		{
+			get
+			{
+				return this.___;
+			}
+			set
+			{
+				if ((this.___ != value))
+				{
+					this.___ = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Código_1", DbType="VarChar(20)")]
+		public string Código_1
+		{
+			get
+			{
+				return this._Código_1;
+			}
+			set
+			{
+				if ((this._Código_1 != value))
+				{
+					this._Código_1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Código_2", DbType="VarChar(20)")]
+		public string Código_2
+		{
+			get
+			{
+				return this._Código_2;
+			}
+			set
+			{
+				if ((this._Código_2 != value))
+				{
+					this._Código_2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo", DbType="VarChar(50)")]
+		public string Tipo
+		{
+			get
+			{
+				return this._Tipo;
+			}
+			set
+			{
+				if ((this._Tipo != value))
+				{
+					this._Tipo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Marca", DbType="VarChar(25)")]
+		public string Marca
+		{
+			get
+			{
+				return this._Marca;
+			}
+			set
+			{
+				if ((this._Marca != value))
+				{
+					this._Marca = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Modelo", DbType="VarChar(150)")]
+		public string Modelo
+		{
+			get
+			{
+				return this._Modelo;
+			}
+			set
+			{
+				if ((this._Modelo != value))
+				{
+					this._Modelo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Serial", DbType="VarChar(50)")]
+		public string Serial
+		{
+			get
+			{
+				return this._Serial;
+			}
+			set
+			{
+				if ((this._Serial != value))
+				{
+					this._Serial = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ubicacion_activo", DbType="VarChar(50)")]
+		public string ubicacion_activo
+		{
+			get
+			{
+				return this._ubicacion_activo;
+			}
+			set
+			{
+				if ((this._ubicacion_activo != value))
+				{
+					this._ubicacion_activo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado_Activo", DbType="VarChar(25)")]
+		public string Estado_Activo
+		{
+			get
+			{
+				return this._Estado_Activo;
+			}
+			set
+			{
+				if ((this._Estado_Activo != value))
+				{
+					this._Estado_Activo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Observaciones", DbType="VarChar(200)")]
+		public string Observaciones
+		{
+			get
+			{
+				return this._Observaciones;
+			}
+			set
+			{
+				if ((this._Observaciones != value))
+				{
+					this._Observaciones = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado_Uso", DbType="Char(1)")]
+		public System.Nullable<char> Estado_Uso
+		{
+			get
+			{
+				return this._Estado_Uso;
+			}
+			set
+			{
+				if ((this._Estado_Uso != value))
+				{
+					this._Estado_Uso = value;
 				}
 			}
 		}

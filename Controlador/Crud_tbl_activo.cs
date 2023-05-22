@@ -16,6 +16,11 @@ namespace Controlador
             return list.ToList();
         }
 
+        public static List<listar_all_activoResult> Listar_all_Activo()
+        {
+            var list = dc.listar_all_activo();
+            return list.ToList();
+        }
         public static void Insertar_Activo(tbl_activo ta)
         {
             try
