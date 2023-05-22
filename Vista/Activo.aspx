@@ -8,6 +8,8 @@
             </p>
             <p>
                 <asp:Button ID="bt_buscar" class="btn btn-primary" runat="server" Text="Buscar" OnClick="bt_buscar_Click"  />
+                <asp:Button ID="btn_listar" class="btn btn-primary" runat="server" Text="TODOS LOS DATOS" OnClick="btn_listar_Click"  />
+
             </p>
             <p>
                 <asp:GridView ID="grid_activo" CssClass="table  table-sm table-bordered table-condensed table-responsive-sm table-hover " runat="server" OnSelectedIndexChanged="grid_activo_SelectedIndexChanged" AllowPaging="True" OnPageIndexChanging="grid_activo_PageIndexChanging">

@@ -12,6 +12,8 @@ namespace Vista
     public partial class Activo : System.Web.UI.Page
     {
         List<listar_activoResult> list_act = new List<listar_activoResult>();
+        List<listar_all_activoResult> listar_all_act = new List<listar_all_activoResult>();
+
         List<listar_marcaResult> list_marc = new List<listar_marcaResult>();
         List<listar_modeloResult> list_model = new List<listar_modeloResult>();
         List<listar_estadoAcResult> list_estAc = new List<listar_estadoAcResult>();
@@ -25,7 +27,8 @@ namespace Vista
             Inicia en false, indicando que es la primera carga.*/
             if (!IsPostBack)
             {
-                listar_activo();
+                Session["mostrar_activos"] = 1;
+                listar_activos();
                 cargar_marca();
                 cargar_modelo();
                 cargar_estadoAc();
@@ -91,21 +94,56 @@ namespace Vista
                     break;
             }
         }
-            
-        public void listar_activo()
-        {            
-            list_act = Crud_tbl_activo.Listar_Activo();
-            if (list_act != null)
+
+        //public void listar_activo()
+        //{            
+        //    list_act = Crud_tbl_activo.Listar_Activo();
+        //    if (list_act != null)
+        //    {
+
+        //        grid_activo.DataSource = list_act;
+        //        grid_activo.DataBind();
+        //    }
+        //}
+        //// Listar todos los activos
+        //public void listar_all_activo()
+        //{
+        //    listar_all_act = Crud_tbl_activo.Listar_all_Activo();
+        //    if (listar_all_act != null)
+        //    {
+
+        //        grid_activo.DataSource = listar_all_act;
+        //        grid_activo.DataBind();
+        //    }
+        //}
+
+        public void listar_activos()
+        {
+            int valorVariable = (int)Session["mostrar_activos"];
+            if (valorVariable == 1)
             {
 
-                grid_activo.DataSource = list_act;
-                grid_activo.DataBind();
+                list_act = Crud_tbl_activo.Listar_Activo();
+                if (list_act != null)
+                {
+                    grid_activo.DataSource = list_act;
+                    grid_activo.DataBind();
+                }
+            }
+            else if (valorVariable == 2)
+            {
+                listar_all_act = Crud_tbl_activo.Listar_all_Activo();
+                if (listar_all_act != null)
+                {
+                    grid_activo.DataSource = listar_all_act;
+                    grid_activo.DataBind();
+                }
             }
         }
         private void prueba_obtener()
         {
             var marca = drop_marca.SelectedValue.ToString();
-            txt_buscar.Text =Convert.ToString( marca);
+            txt_buscar.Text = Convert.ToString(marca);
         }
         private void cargar_marca()
         {
@@ -141,17 +179,30 @@ namespace Vista
         {
             tbl_activo objeto = new tbl_activo();
             objeto.cod1_activo = txt_act1.Text;
+            if (txt_act2.Text == "")
+            {
+                txt_act2.Text = "predeterminado";
+            }
             objeto.cod2_activo = txt_act2.Text;
-            objeto.tipo_activo = txt_tipoact.Text;           
+            objeto.tipo_activo = txt_tipoact.Text;
             objeto.id_marca = Convert.ToInt32(drop_marca.SelectedValue);
             objeto.id_modelo = Convert.ToInt32(drop_modelo.SelectedValue);
             objeto.serial_activo = txt_serial.Text;
             objeto.ubicacion_activo = txt_ubicacionact.Text;
-            objeto.id_estadoAc =Convert.ToInt32(drop_estadoact.SelectedValue);
+            objeto.id_estadoAc = Convert.ToInt32(drop_estadoact.SelectedValue);
             objeto.observacion_activo = txt_observacion.Text;
-            objeto.estado_uso =Convert.ToChar("0");
-            Crud_tbl_activo.Insertar_Activo(objeto);            
-    }
+            if (txt_act1.Text == "" || txt_act2.Text == "")
+            {
+
+                objeto.estado_uso = Convert.ToChar("I");
+            }
+            else
+            {
+                objeto.estado_uso = Convert.ToChar("A");
+
+            }
+            Crud_tbl_activo.Insertar_Activo(objeto);
+        }
 
         public void buscar_tbl_activo(string descricion)
         {
@@ -172,7 +223,7 @@ namespace Vista
 
         protected void bt_buscar_Click(object sender, EventArgs e)
         {
-            buscar_tbl_activo(txt_buscar.Text);            
+            buscar_tbl_activo(txt_buscar.Text);
         }
 
         protected void btn_nuevo_Click(object sender, EventArgs e)
@@ -194,7 +245,26 @@ namespace Vista
         protected void grid_activo_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grid_activo.PageIndex = e.NewPageIndex;
-            listar_activo();
+            listar_activos();
+        }
+
+     
+
+        protected void btn_listar_Click(object sender, EventArgs e)
+        {
+            int valorVariable = (int)Session["mostrar_activos"];
+            if (valorVariable == 1)
+            {
+                Session["mostrar_activos"] = 2;
+                listar_activos();
+                btn_listar.Text = "TODOS LOS DATOS"; 
+            }else if (valorVariable == 2){
+                Session["mostrar_activos"] = 1;
+                btn_listar.Text = "DATOS COMPLETOS";
+
+
+                listar_activos();
+            }
         }
     }
 }

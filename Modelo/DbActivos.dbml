@@ -358,4 +358,19 @@
       <Column Name="desc_modelo" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.listar_all_activo" Method="listar_all_activo">
+    <ElementType Name="listar_all_activoResult">
+      <Column Name="[#]" Member="__" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Código_1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Código_2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Marca" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Modelo" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Serial" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ubicacion_activo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Estado_Activo" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Observaciones" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Estado_Uso" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

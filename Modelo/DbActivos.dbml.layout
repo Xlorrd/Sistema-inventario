@@ -56,49 +56,49 @@
         <elementListCompartment Id="e560c0ab-16a3-4b55-a8ae-bf6690a5940a" absoluteBounds="0.765, 10.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 9.46235270182292); (7.25 : 9.46235270182292); (7.25 : 3.28049967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 9.46235270182292); (7.25 : 9.46235270182292); (7.25 : 3.28049967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DbActivosDataContext/tbl_activo/tbl_activo_tbl_custodio" />
       <nodes>
         <classShapeMoniker Id="7ebf682a-4b6c-4f42-b025-1e5a709d326d" />
         <classShapeMoniker Id="62bd42af-a894-40ed-9077-cc90b59af1e3" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 2.20274983723958); (6.25 : 2.20274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 2.20274983723958); (6.25 : 2.20274983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DbActivosDataContext/tbl_empleado/tbl_empleado_tbl_custodio" />
       <nodes>
         <classShapeMoniker Id="5c1d8a93-5593-4e68-a8d9-393815183807" />
         <classShapeMoniker Id="62bd42af-a894-40ed-9077-cc90b59af1e3" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 2.22199625651042); (3.5 : 2.22199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 2.22199625651042); (3.5 : 2.22199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DbActivosDataContext/tbl_departamento/tbl_departamento_tbl_empleado" />
       <nodes>
         <classShapeMoniker Id="faaad2a0-20ff-4626-924f-012de141a2ec" />
         <classShapeMoniker Id="5c1d8a93-5593-4e68-a8d9-393815183807" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 6.19314697265625); (4.5 : 6.19314697265625); (4.5 : 3.5401025390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 6.19314697265625); (4.5 : 6.19314697265625); (4.5 : 3.5401025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DbActivosDataContext/tbl_rol/tbl_rol_tbl_empleado" />
       <nodes>
         <classShapeMoniker Id="c73684df-03d2-4cbd-bd5e-730ea07c1b3d" />
         <classShapeMoniker Id="5c1d8a93-5593-4e68-a8d9-393815183807" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 8.53449625651042); (3.5 : 8.53449625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 8.53449625651042); (3.5 : 8.53449625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DbActivosDataContext/tbl_estadoAc/tbl_estadoAc_tbl_activo" />
       <nodes>
         <classShapeMoniker Id="992a4061-8d5e-4724-85a3-60300f2d3bd6" />
         <classShapeMoniker Id="7ebf682a-4b6c-4f42-b025-1e5a709d326d" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 12.4719962565104); (3.5 : 12.4719962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 12.4719962565104); (3.5 : 12.4719962565104)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DbActivosDataContext/tbl_marca/tbl_marca_tbl_marcaModelo" />
       <nodes>
         <classShapeMoniker Id="1f46667d-53ed-4957-964c-0fc2338ed41b" />
         <classShapeMoniker Id="87282c22-602e-4c57-91f4-20bfc596b1bf" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 10.3998527018229); (3.5 : 10.3998527018229)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 10.3998527018229); (3.5 : 10.3998527018229)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DbActivosDataContext/tbl_modelo/tbl_modelo_tbl_activo" />
       <nodes>
         <classShapeMoniker Id="f3b12e27-217b-41ca-9033-7ba480d6bce7" />
