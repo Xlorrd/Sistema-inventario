@@ -1,0 +1,10 @@
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\bin\Release\Controlador.dll
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\bin\Release\Controlador.pdb
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\bin\Release\Modelo.dll
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\bin\Release\Modelo.pdb
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\bin\Release\Modelo.dll.config
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\obj\Release\Controlador.csprojAssemblyReference.cache
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\obj\Release\Controlador.csproj.CoreCompileInputs.cache
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\obj\Release\Controlador.csproj.CopyComplete
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\obj\Release\Controlador.dll
+C:\Users\asimbana\source\repos\Control_Inventario\Controlador\obj\Release\Controlador.pdb
