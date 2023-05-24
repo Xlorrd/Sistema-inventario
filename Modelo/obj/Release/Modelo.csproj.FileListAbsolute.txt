@@ -1,0 +1,6 @@
+C:\Users\asimbana\source\repos\Control_Inventario\Modelo\bin\Release\Modelo.dll.config
+C:\Users\asimbana\source\repos\Control_Inventario\Modelo\bin\Release\Modelo.dll
+C:\Users\asimbana\source\repos\Control_Inventario\Modelo\bin\Release\Modelo.pdb
+C:\Users\asimbana\source\repos\Control_Inventario\Modelo\obj\Release\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\asimbana\source\repos\Control_Inventario\Modelo\obj\Release\Modelo.dll
+C:\Users\asimbana\source\repos\Control_Inventario\Modelo\obj\Release\Modelo.pdb
